@@ -1,23 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-
-int main(int argc, char *argv[])
-{
-    double a,b,c,x1,x2,h;
-    scanf("%lf %lf %lf",&a,&b,&c);
-    if(b*b==4*a*c){
-        x1=(-1*b+sqrt(b*b-4*a*c))/(2*a);
-        printf("x1=x2=%.5lf",x1);
+#include<stdio.h>
+int main(void) {
+    int n, score;
+    int count_A = 0, count_B = 0, count_C = 0, count_D = 0, count_E = 0;
+    scanf("%d", &n);
+    while(n--) {
+        scanf("%d", &score);
+        if(score >= 90)
+            ++count_A;
+        else if(score >= 80)
+            ++count_B;
+        else if(score >= 70)
+            ++count_C;
+        else if(score >= 60)
+            ++count_D;
+        else
+            ++count_E;
     }
-    else if(b*b>4*a*c){
-        x1=(-1*b+sqrt(b*b-4*a*c))/(2*a);
-        x2=(-1*b-sqrt(b*b-4*a*c))/(2*a);
-        printf("x1=%.5lf;x2=%.5lf",x1,x2);
-    }
-    else{
-        h=1*b/(2*a);
-        printf("x1=%.5lf+%.5lfi;x2=%.5lf-%.5lfi",h,sqrt(4*a*c-b*b)/(2*a),h,sqrt(4*a*c-b*b)/(2*a));
-    }
+    printf("%d %d %d %d %d\n", count_A, count_B, count_C, count_D, count_E);
     return 0;
 }
