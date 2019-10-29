@@ -1,22 +1,23 @@
-//
-//  main.c
-//  PTA
-//
-//  Created by s20181105306 on 2019/10/29.
-//  Copyright © 2019 s20181105306. All rights reserved.
-//
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
-#include<stdio.h>
-    int main()
-    {
-        double n;
-        scanf("%lf",&n);
-        if(n<0)
-            printf("Invalid Value!\n");
-        else if(n<=50)
-            printf("cost = %.2lf\n",n*0.53);
-        else if(n>50)
-            printf("cost = %.2lf\n",(50*0.53+(n-50)*0.05));
-        return 0;
+int main(int argc, char *argv[])
+{
+    double a,b,c,x1,x2,h;
+    scanf("%lf %lf %lf",&a,&b,&c);
+    if(b*b==4*a*c){
+        x1=(-1*b+sqrt(b*b-4*a*c))/(2*a);
+        printf("x1=x2=%.5lf",x1);
     }
-    
+    else if(b*b>4*a*c){
+        x1=(-1*b+sqrt(b*b-4*a*c))/(2*a);
+        x2=(-1*b-sqrt(b*b-4*a*c))/(2*a);
+        printf("x1=%.5lf;x2=%.5lf",x1,x2);
+    }
+    else{
+        h=1*b/(2*a);
+        printf("x1=%.5lf+%.5lfi;x2=%.5lf-%.5lfi",h,sqrt(4*a*c-b*b)/(2*a),h,sqrt(4*a*c-b*b)/(2*a));
+    }
+    return 0;
+}
